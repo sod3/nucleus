@@ -1,0 +1,10 @@
+.notification {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .notification-item {
+    margin-bottom: 15px;
+  }
+  

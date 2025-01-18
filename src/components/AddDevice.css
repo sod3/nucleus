@@ -1,0 +1,74 @@
+.add-new-device {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  font-family: "Arial", sans-serif;
+}
+
+.back-button {
+  background: #003366;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #005599;
+}
+
+.form-title {
+  font-size: 1.8rem;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.device-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.device-form label {
+  font-size: 1rem;
+  color: #003366;
+  margin-bottom: 5px;
+}
+
+.device-form input,
+.device-form select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.device-form input:focus,
+.device-form select:focus {
+  outline: none;
+  border: 1px solid #00bfff;
+  box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+}
+
+.submit-button {
+  background: #00bfff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background: #005599;
+}
