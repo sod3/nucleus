@@ -1,0 +1,77 @@
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .signup-container {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #333;
+  }
+  
+  .signup-container h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #ff7e5f;
+  }
+  
+  .signup-container p {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .signup-btn {
+    width: 100%;
+    padding: 10px;
+    background: #ff7e5f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .signup-btn:hover {
+    background: #feb47b;
+  }
+  
+  .login-prompt {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .login-prompt a {
+    color: #ff7e5f;
+    text-decoration: none;
+  }
+  
+  .login-prompt a:hover {
+    text-decoration: underline;
+  }

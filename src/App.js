@@ -9,6 +9,8 @@ import DeviceDetail from "./components/DeviceDetail";
 import AddNewDevice from "./components/AddDevice";
 import { FaLightbulb, FaPlug, FaThermometerHalf, FaWifi } from "react-icons/fa";
 import SignOut from "./components/SignOut";
+import LoginPage from "./components/LoginPage";
+import Signup from "./components/SignUppage";
 
 function App() {
   const [devices, setDevices] = useState([
@@ -30,6 +32,8 @@ function App() {
              <Route path="/" element={<YourDevices devices={devices} />}/>
             <Route path="/device/:deviceId" element={<DeviceDetail />} />
             <Route path="/history" element={<DeviceHistory />} />
+            <Route path="/LoginPage" element={<LoginPage />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/add-device" element={<AddNewDevice onAddDevice={handleAddDevice} />}/>
             <Route path="/notifications" element={<Notification />} />
             <Route path="/signout" element={<SignOut />} />

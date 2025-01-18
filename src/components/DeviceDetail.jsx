@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { FaBolt, FaTachometerAlt, FaWater } from "react-icons/fa";
+import { FaBolt, FaTachometerAlt, FaWater, FaTrash } from "react-icons/fa";
 import {
   LineChart,
   Line,
@@ -11,14 +11,11 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "./DeviceDetail.css";
-
 function DeviceDetail() {
   const { deviceId } = useParams(); // Get the device ID from the URL
   const navigate = useNavigate();
-
   // State to manage selected metric
   const [selectedMetric, setSelectedMetric] = useState("power");
-
   // Mock data for the selected device (replace with API data)
   const deviceData = {
     id: deviceId,
@@ -36,12 +33,15 @@ function DeviceDetail() {
       { month: "Jun", power: 250, flowRate: 60, voltage: 245 },
     ],
   };
-
-  // Handler to change the selected metric
   const handleMetricChange = (metric) => {
     setSelectedMetric(metric);
   };
-
+  const handleDeleteDevice = () => {
+    if (window.confirm("Are you sure you want to delete this device?")) {
+      alert(`Device ${deviceId} has been deleted.`); // Replace with actual delete logic
+      navigate("/"); // Navigate back to the home page
+    }
+  };
   // Determine the data and label based on selected metric
   const chartData = deviceData.history.map((item) => ({
     month: item.month,
@@ -52,34 +52,38 @@ function DeviceDetail() {
         ? item.flowRate
         : item.voltage,
   }));
-
   const chartLabel =
     selectedMetric === "power"
       ? "Power (KW)"
       : selectedMetric === "flowRate"
       ? "Flow Rate (L/min)"
       : "Voltage (V)";
-
   const chartColor =
     selectedMetric === "power"
-      ? "#00bfff"
+      ? "#00BFFF"
       : selectedMetric === "flowRate"
-      ? "#32cd32"
-      : "#ff8c00";
-
+      ? "#32CD32"
+      : "#FF8C00";
   return (
     <div className="device-detail">
-      <button className="back-button" onClick={() => navigate("/")}>
-        ← Back
-      </button>
-
+      <div className="back-delete-container">
+        <button className="back-button" onClick={() => navigate("/")}>
+          ← Back
+        </button>
+        <button
+          className="delete-button"
+          onClick={handleDeleteDevice}
+          title="Delete Device"
+        >
+          <FaTrash />
+        </button>
+      </div>
       <div className="device-header">
         <h2>{deviceData.name}</h2>
         <span className={`status ${deviceData.status.toLowerCase()}`}>
           {deviceData.status}
         </span>
       </div>
-
       <div className="device-stats">
         <div className="stat-card">
           <FaBolt className="stat-icon" />
@@ -97,8 +101,6 @@ function DeviceDetail() {
           <span className="stat-label">Voltage</span>
         </div>
       </div>
-
-      {/* Metric Selection Menu */}
       <div className="metric-menu">
         <button
           className={`metric-button ${
@@ -125,8 +127,6 @@ function DeviceDetail() {
           Voltage
         </button>
       </div>
-
-      {/* Chart Section */}
       <div className="chart-container">
         <h3>{chartLabel} Over Months</h3>
         <ResponsiveContainer width="100%" height={300}>
@@ -154,5 +154,4 @@ function DeviceDetail() {
     </div>
   );
 }
-
 export default DeviceDetail;

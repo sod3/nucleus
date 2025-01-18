@@ -4,41 +4,62 @@ import "./AddDevice.css";
 
 function AddNewDevice({ onAddDevice }) {
   const [deviceName, setDeviceName] = useState("");
-  const [deviceType, setDeviceType] = useState("");
-  const [status, setStatus] = useState("active");
+  const [error, setError] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
 
-  const getIcon = (type) => {
-    switch (type) {
-      case "Electrical":
-        return "🔌";
-      case "Mechanical":
-        return "⚙️";
-      case "Plumbing":
-        return "🚿";
-      default:
-        return "📱";
-    }
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newDevice = {
-      id: Math.random().toString(36).substr(2, 9),
-      name: deviceName,
-      icon: getIcon(deviceType),
-      active: status === "active",
-    };
+    // Basic frontend validation
+    if (deviceName.trim() === "") {
+      setError("Device name cannot be empty.");
+      return;
+    }
 
-    onAddDevice(newDevice);
+    setIsSubmitting(true);
+    setError(null);
 
-    setDeviceName("");
-    setDeviceType("");
-    setStatus("active");
+    try {
+      // Retrieve the JWT token from localStorage
+      const token = localStorage.getItem("token");
 
-    navigate("/");
+      if (!token) {
+        throw new Error("User is not authenticated. Please log in.");
+      }
+
+      // Send the POST request to the backend
+      const response = await fetch("https://2a60-203-215-166-38.ngrok-free.app/sensors", { // Replace with your actual endpoint
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`, // Include the JWT token in the Authorization header
+        },
+        body: JSON.stringify({ name: deviceName.trim() }), // Send only the name field
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to add device.");
+      }
+
+      const data = await response.json();
+
+      // Assuming the backend returns the created device object
+      onAddDevice(data);
+
+      // Reset the form
+      setDeviceName("");
+
+      // Navigate back to the dashboard or device list
+      navigate("/"); // Replace with your actual route
+    } catch (error) {
+      console.error("Error adding device:", error);
+      setError(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -56,10 +77,13 @@ function AddNewDevice({ onAddDevice }) {
           onChange={(e) => setDeviceName(e.target.value)}
           placeholder="Enter device name"
           required
+          disabled={isSubmitting}
         />
 
-        <button type="submit" className="submit-button">
-          Add Device
+        {error && <p className="error-message">{error}</p>} {/* Display error message */}
+
+        <button type="submit" className="submit-button" disabled={isSubmitting}>
+          {isSubmitting ? "Adding..." : "Add Device"}
         </button>
       </form>
     </div>

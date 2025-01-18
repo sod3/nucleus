@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaPlus, FaHistory, FaBell, FaSignOutAlt } from "react-icons/fa";
+import { FaHome, FaPlus, FaHistory, FaBell, FaSignOutAlt, FaSignInAlt } from "react-icons/fa";
 import "./Sidebar.css";
 
 function Sidebar() {
@@ -42,6 +42,14 @@ function Sidebar() {
         >
           <FaBell className="icon" />
           <span>Notifications</span>
+        </NavLink>
+        <NavLink
+          to="/signup"
+          className="sidebar-item"
+          activeClassName="active"
+        >
+          <FaSignInAlt className="icon" />
+          <span>Sign Up</span>
         </NavLink>
         <NavLink
           to="/signout"
