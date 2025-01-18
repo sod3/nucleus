@@ -1,0 +1,68 @@
+.create-pattern {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #e0f7fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .create-pattern h2 {
+    margin-bottom: 20px;
+    color: #003366;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .confirm-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+  }
+  
+  .confirm-button {
+    background-color: #b5eef6;
+    color: #004d40;
+    border: none;
+  }
+  
+  .confirm-button:hover {
+    background-color: #b2ebf2;
+  }
+  
+  .back-button {
+    background-color: #b5eef6;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+  }
+  
+  

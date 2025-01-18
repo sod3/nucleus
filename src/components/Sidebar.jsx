@@ -44,12 +44,12 @@ function Sidebar() {
           <span>Notifications</span>
         </NavLink>
         <NavLink
-          to="/signup"
+          to="/LoginPage"
           className="sidebar-item"
           activeClassName="active"
         >
           <FaSignInAlt className="icon" />
-          <span>Sign Up</span>
+          <span>Login </span>
         </NavLink>
         <NavLink
           to="/signout"

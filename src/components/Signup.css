@@ -1,77 +1,134 @@
+/* Main container for the sign-up page */
 .signup-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
-    color: #fff;
-    font-family: Arial, sans-serif;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   
-  .signup-container {
-    background: #fff;
-    padding: 30px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    color: #333;
-  }
-  
-  .signup-container h1 {
-    margin-bottom: 10px;
-    font-size: 24px;
-    color: #ff7e5f;
-  }
-  
-  .signup-container p {
-    margin-bottom: 20px;
-    font-size: 14px;
-  }
-  
-  .input-group {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  .signup-btn {
-    width: 100%;
-    padding: 10px;
-    background: #ff7e5f;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .signup-btn:hover {
-    background: #feb47b;
-  }
-  
-  .login-prompt {
-    margin-top: 20px;
-    font-size: 14px;
-  }
-  
-  .login-prompt a {
-    color: #ff7e5f;
-    text-decoration: none;
-  }
-  
-  .login-prompt a:hover {
-    text-decoration: underline;
-  }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* The container that holds the sign-up form */
+.signup-container {
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Softer shadow for a clean look */
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  color: #333;
+}
+
+/* Title styling */
+.signup-container h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ff7e5f; /* Warm coral color for emphasis */
+}
+
+/* Paragraph text style */
+.signup-container p {
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: #777; /* Lighter text for description */
+}
+
+/* Styling input field groups */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Label styling */
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #555; /* Darker grey for readability */
+}
+
+/* Styling the input fields */
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  background: #f9f9f9;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Input field focus effect */
+.input-group input:focus {
+  border-color: #ff7e5f;
+  background: #fff;
+  outline: none;
+}
+
+/* Styling for the sign-up button */
+.signup-btn {
+  width: 100%;
+  padding: 14px;
+  background: #ff7e5f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Hover effect for sign-up button */
+.signup-btn:hover {
+  background: #feb47b; /* Smooth transition to a softer yellow */
+}
+
+/* Link section for toggle between Sign Up and Login */
+.login-prompt {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
+}
+
+.login-prompt a {
+  color: #ff7e5f;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for log-in link */
+.login-prompt a:hover {
+  color: #feb47b;
+  text-decoration: underline;
+}
+
+/* Optional: Styling for buttons when switching between Sign Up and Log In */
+.toggle-button {
+  border: none;
+  background: none;
+  color: #ff7e5f;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.toggle-button:hover {
+  color: #feb47b;
+  text-decoration: underline;
+}
+
+/* Styling for the small text under the password input */
+.password-requirements {
+  font-size: 12px;
+  color: #777; /* Light grey color for less emphasis */
+  margin-top: 5px;
+  text-align: left;
+  display: block;
+}

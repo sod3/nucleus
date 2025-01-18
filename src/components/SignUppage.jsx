@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import the eye icons
 import "./Signup.css";
 
 function Signup() {
-  const [username, setUsername] = useState(""); // Changed from 'name' to 'username'
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State for toggling confirm password visibility
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -27,7 +30,7 @@ function Signup() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error("Server Error:", errorData); // Log the entire error response
+        console.error("Server Error:", errorData);
         throw new Error(errorData.message || "Signup failed");
       }
 
@@ -41,6 +44,16 @@ function Signup() {
     }
   };
 
+  // Toggle function for password visibility
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // Toggle function for confirm password visibility
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
   return (
     <div className="signup-page">
       <div className="signup-container">
@@ -48,42 +61,67 @@ function Signup() {
         <p>Join Sahulaat and make every step easier!</p>
         <form onSubmit={handleSignup}>
           <div className="input-group">
-            <label htmlFor="username">Username</label> {/* Updated label */}
+            <label htmlFor="username">Username</label>
             <input
               type="text"
               id="username"
               placeholder="Enter your username"
-              value={username} // Updated state variable
+              value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
+
           <div className="input-group">
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="password-container">
+              <input
+                type={showPassword ? "text" : "password"} // Toggle between 'text' and 'password'
+                id="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle-btn"
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />} {/* Toggle between eye and eye-slash icons */}
+              </button>
+            </div>
+            <small className="password-requirements">
+              Password must be at least 8 characters long, contain at least one capital letter, one special character, and one number.
+            </small>
           </div>
+
           <div className="input-group">
             <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              placeholder="Confirm your password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
+            <div className="password-container">
+              <input
+                type={showConfirmPassword ? "text" : "password"} // Toggle between 'text' and 'password'
+                id="confirmPassword"
+                placeholder="Confirm your password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle-btn"
+                onClick={toggleConfirmPasswordVisibility}
+              >
+                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />} {/* Toggle between eye and eye-slash icons */}
+              </button>
+            </div>
           </div>
+
           <button type="submit" className="signup-btn">
             Sign Up
           </button>
         </form>
+
         <p className="login-prompt">
           Already have an account? <Link to="/LoginPage">Log In</Link>
         </p>

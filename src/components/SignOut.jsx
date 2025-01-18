@@ -7,9 +7,14 @@ function SignOut() {
   const navigate = useNavigate();
 
   const handleSignOut = () => {
-    // Perform sign-out logic here (e.g., clearing tokens, calling APIs)
+    // Remove the token from localStorage to sign the user out
+    localStorage.removeItem("token"); // Removes the stored token
+
+    // Perform any additional sign-out logic (e.g., clearing user session or calling an API)
     alert("Signed Out Successfully!");
-    navigate("/login"); // Redirect to login page after sign-out
+
+    // Redirect to the login page after sign-out
+    navigate("/loginPage"); // Redirect to login page
   };
 
   const openModal = () => {

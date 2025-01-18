@@ -11,6 +11,7 @@ import { FaLightbulb, FaPlug, FaThermometerHalf, FaWifi } from "react-icons/fa";
 import SignOut from "./components/SignOut";
 import LoginPage from "./components/LoginPage";
 import Signup from "./components/SignUppage";
+import CreatePattern from "./components/CreatePattern";
 
 function App() {
   const [devices, setDevices] = useState([
@@ -37,6 +38,8 @@ function App() {
             <Route path="/add-device" element={<AddNewDevice onAddDevice={handleAddDevice} />}/>
             <Route path="/notifications" element={<Notification />} />
             <Route path="/signout" element={<SignOut />} />
+            <Route path="/" element={<Notification />} />
+            <Route path="/create-pattern" element={<CreatePattern />} /> 
           </Routes>
         </div>
       </div>
