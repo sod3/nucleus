@@ -138,6 +138,17 @@
   color: #003366;
   margin-bottom: 20px;
 }
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #FF4D4F;
+  font-size: 18px;
+  margin-left: 330px;
+  cursor: pointer;
+}
+.delete-button:hover {
+  color: #D9363E;
+}
 
 @media (max-width: 768px) {
   .device-stats {

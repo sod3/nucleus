@@ -27,9 +27,13 @@ function Signup() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error("Server Error:", errorData); // Log the entire error response
-        throw new Error(errorData.message || "Signup failed");
-      }
+        if (errorData.detail) {
+          alert(`Signup failed: ${errorData.detail}`);
+        } else {
+          console.error("Server Error:", errorData); // Log the entire error response
+          throw new Error(errorData.message || "Signup failed");
+        }
+      }  
 
       const data = await response.json();
       console.log("Signup successful:", data);

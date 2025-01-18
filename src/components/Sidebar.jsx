@@ -7,7 +7,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="logo-section">
-        <img src="/logo.png" alt="Sahulaat Logo" />
+        <img src="/logo1.png" alt="Sahulaat Logo" />
       </div>
       <nav>
         <NavLink
