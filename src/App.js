@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Notification from "./components/Notification";
@@ -12,6 +12,9 @@ import SignOut from "./components/SignOut";
 import LoginPage from "./components/LoginPage";
 import Signup from "./components/SignUppage";
 import CreatePattern from "./components/CreatePattern";
+import { generateToken, messaging } from "./Notifications/firebase";
+import { onMessage } from "firebase/messaging";
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   const [devices, setDevices] = useState([
@@ -24,27 +27,41 @@ function App() {
   const handleAddDevice = (newDevice) => {
     setDevices((prevDevices) => [...prevDevices, newDevice]);
   };
+
+  useEffect(() => {
+    generateToken(); 
+    onMessage(messaging, (payload) =>{
+      console.log(payload);
+      toast(payload.notification.body);
+
+    })
+  }, []);
+
   return (
+    <div>
+    <Toaster/>
+
     <Router>
       <div className="app-container">
         <Sidebar />
         <div className="main-content">
           <Routes>
-             <Route path="/" element={<YourDevices devices={devices} />}/>
+            <Route path="/" element={<YourDevices devices={devices} />} />
             <Route path="/device/:deviceId" element={<DeviceDetail />} />
             <Route path="/history" element={<DeviceHistory />} />
             <Route path="/LoginPage" element={<LoginPage />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/add-device" element={<AddNewDevice onAddDevice={handleAddDevice} />}/>
+            <Route path="/add-device" element={<AddNewDevice onAddDevice={handleAddDevice} />} />
             <Route path="/notifications" element={<Notification />} />
             <Route path="/signout" element={<SignOut />} />
-            <Route path="/" element={<Notification />} />
-            <Route path="/create-pattern" element={<CreatePattern />} /> 
+            <Route path="/create-pattern" element={<CreatePattern />} />
           </Routes>
         </div>
       </div>
+
     </Router>
-  );
+    </div>
+ );
 }
 
 export default App;
