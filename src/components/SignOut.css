@@ -1,0 +1,159 @@
+/* SignOut.css */
+
+.signout-container {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    margin: 50px auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .signout-container h2 {
+    color: #003366;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+  }
+  
+  .signout-container p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 1rem;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .signout-button,
+  .cancel-button,
+  .confirm-button,
+  .modal-cancel-button,
+  .login-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signout-button {
+    background-color: #e57373; /* Light red */
+    color: #fff;
+  }
+  
+  .signout-button:hover {
+    background-color: #ef5350;
+  }
+  
+  .cancel-button {
+    background-color: #b0bec5; /* Light gray-blue */
+    color: #fff;
+  }
+  
+  .cancel-button:hover {
+    background-color: #90a4ae;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .modal-content h3 {
+    color: #003366;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  
+  .modal-content p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 1rem;
+  }
+  
+  .modal-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .confirm-button {
+    background-color: #4caf50; /* Green */
+    color: #fff;
+  }
+  
+  .confirm-button:hover {
+    background-color: #43a047;
+  }
+  
+  .modal-cancel-button {
+    background-color: #b0bec5; /* Light gray-blue */
+    color: #fff;
+  }
+  
+  .modal-cancel-button:hover {
+    background-color: #90a4ae;
+  }
+  
+  .login-prompt {
+    margin-top: 20px;
+  }
+  
+  .login-prompt p {
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  
+  .login-button {
+    background-color: #64b5f6; /* Light blue */
+    color: #fff;
+  }
+  
+  .login-button:hover {
+    background-color: #42a5f5;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 500px) {
+    .signout-container {
+      padding: 20px;
+      margin: 20px;
+    }
+  
+    .button-group {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .modal-button-group {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  

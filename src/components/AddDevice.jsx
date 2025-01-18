@@ -58,29 +58,6 @@ function AddNewDevice({ onAddDevice }) {
           required
         />
 
-        <label htmlFor="deviceType">Device Type</label>
-        <select
-          id="deviceType"
-          value={deviceType}
-          onChange={(e) => setDeviceType(e.target.value)}
-          required
-        >
-          <option value="">Select type</option>
-          <option value="Electrical">Electrical</option>
-          <option value="Mechanical">Mechanical</option>
-          <option value="Plumbing">Plumbing</option>
-        </select>
-
-        <label htmlFor="status">Status</label>
-        <select
-          id="status"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-        >
-          <option value="active">Active</option>
-          <option value="inactive">Inactive</option>
-        </select>
-
         <button type="submit" className="submit-button">
           Add Device
         </button>
